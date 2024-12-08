@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center mt-3">Movie Details</h2>
+<div class="card mb-3 mt-5 mx-auto p-4" style="max-width: 650px;">
+  <div class="row g-0">
+    <div class="col-md-4 p-5">
+      <img src="{{display.image.url}}" class="rounded-start" alt="..." height="290px" width="200px">
+    </div>
+    <div class="col-md-8 lh-lg ps-5">
+      <div class="card-body mt-4">
+        <p class="card-title"><strong>TITLE : </strong>{{display.title}}</p>
+        <p class="card-text"><strong>ABOUT : </strong>{{display.description}}</p>
+          <p class="card-text"><strong>LANGUAGE : </strong>{{display.language}}</p>
+          <p class="card-text"><strong>YEAR :</strong>{{display.year}}</p>
+         <div class="d-flex justify-content-between">
+          <a href="{% url 'edit' display.id %}" class="btn btn-warning py-3 w-25 me-5">EDIT</a>
+          <a href="{% url 'delete' display.id %}" class="btn btn-danger py-3">DELETE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

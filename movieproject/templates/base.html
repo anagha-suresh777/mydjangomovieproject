@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand">Online Movie Store</a>
+
+<form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'searchanything' %}">
+    {% csrf_token %}
+      <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+<a href="{% url 'add' %}" class="btn btn-outline-success" >ADD MOVIE</a>
+  </div>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>
